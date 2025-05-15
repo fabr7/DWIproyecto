@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/web/index.jsp</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/BusinessLogic/UsuarioBL.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/DataAccesObject/ConexionMySQL.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/DataAccesObject/IBaseDAO.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/BusinessEntity/TrabajadorBE.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/BusinessEntity/UsuarioBE.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/DataAccesObject/TrabajadorDAO.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/BusinessEntity/AreaBE.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/BusinessEntity/CargoBE.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/BusinessEntity/ContratoBE.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/BusinessEntity/CertificadoBE.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/DataAccesObject/AreaDAO.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/DataAccesObject/CargoDAO.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/DataAccesObject/CertificadoDAO.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/DataAccesObject/ContratoDAO.java</file>
+            <file>file:/C:/Fabrizzio/UTP/VI%20Y%20VII%20CICLO/DESARROLLO%20WEB/ProyectoRecursosHumanos/src/java/DataAccesObject/UsuarioDAO.java</file>
+        </group>
+    </open-files>
+</project-private>
