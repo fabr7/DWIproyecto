@@ -1,6 +1,6 @@
 package BusinessEntity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class TrabajadorBE {
 
@@ -9,7 +9,7 @@ public class TrabajadorBE {
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String telefono;
     private String email;
     private int idArea;
@@ -58,11 +58,11 @@ public class TrabajadorBE {
         this.apellidoMaterno = apellidoMaterno;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

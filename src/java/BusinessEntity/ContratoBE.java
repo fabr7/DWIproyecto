@@ -1,13 +1,13 @@
 package BusinessEntity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ContratoBE {
 
     private int idContrato;
     private String tipo;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private int idTrabajador;
 
     public ContratoBE() {
@@ -29,19 +29,19 @@ public class ContratoBE {
         this.tipo = tipo;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
 

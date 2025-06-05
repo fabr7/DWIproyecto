@@ -1,76 +1,116 @@
 package DataAccesObject;
 
 import BusinessEntity.TrabajadorBE;
+import java.sql.*;
 import java.util.ArrayList;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class TrabajadorDAO extends ConexionMySQL implements IBaseDAO<TrabajadorBE> {
 
     @Override
-    public boolean Create(TrabajadorBE input) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean Create(TrabajadorBE trabajador) {
+        String query = "INSERT INTO Trabajador (dni, nombre, apellidoPaterno, apellidoMaterno, fechaNacimiento, telefono, email, idArea, idCargo) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection conn = getConexion(); PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, trabajador.getDni());
+            pst.setString(2, trabajador.getNombre());
+            pst.setString(3, trabajador.getApellidoPaterno());
+            pst.setString(4, trabajador.getApellidoMaterno());
+            pst.setDate(5, Date.valueOf(trabajador.getFechaNacimiento()));
+            pst.setString(6, trabajador.getTelefono());
+            pst.setString(7, trabajador.getEmail());
+            pst.setInt(8, trabajador.getIdArea());
+            pst.setInt(9, trabajador.getIdCargo());
+
+            return pst.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
-    public TrabajadorBE Read(String input) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public TrabajadorBE Read(int idTrabajador) {
+        String query = "SELECT * FROM Trabajador WHERE idTrabajador = ?";
+        try (Connection conn = getConexion(); PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setInt(1, idTrabajador);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                TrabajadorBE trabajador = new TrabajadorBE();
+                trabajador.setIdTrabajador(rs.getInt("idTrabajador"));
+                trabajador.setDni(rs.getString("dni"));
+                trabajador.setNombre(rs.getString("nombre"));
+                trabajador.setApellidoPaterno(rs.getString("apellidoPaterno"));
+                trabajador.setApellidoMaterno(rs.getString("apellidoMaterno"));
+                trabajador.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate()); // Convertir a LocalDate
+                trabajador.setTelefono(rs.getString("telefono"));
+                trabajador.setEmail(rs.getString("email"));
+                trabajador.setIdArea(rs.getInt("idArea"));
+                trabajador.setIdCargo(rs.getInt("idCargo"));
+                return trabajador;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public ArrayList<TrabajadorBE> ReadAll() {
-        ArrayList<TrabajadorBE> lista = new ArrayList<>();
-        String sql = "SELECT t.* FROM Trabajador t";
-
-        try (PreparedStatement pst = getConexion().prepareStatement(sql)) {
-            ResultSet res = pst.executeQuery();
-
-            while (res.next()) {
+        ArrayList<TrabajadorBE> trabajadores = new ArrayList<>();
+        String query = "SELECT * FROM Trabajador";
+        try (Connection conn = getConexion(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+            while (rs.next()) {
                 TrabajadorBE trabajador = new TrabajadorBE();
-                trabajador.setIdTrabajador(res.getInt("Id_Trabajador"));
-                trabajador.setDni(res.getString("Dni"));
-                trabajador.setNombre(res.getString("Nombre"));
-                trabajador.setApellidoPaterno(res.getString("Apellido_Paterno"));
-                trabajador.setApellidoMaterno(res.getString("Apellido_Materno"));
-                trabajador.setFechaNacimiento(res.getDate("Fecha_Nacimiento"));
-                trabajador.setTelefono(res.getString("Telefono"));
-                trabajador.setEmail(res.getString("Email"));
-                trabajador.setIdArea(res.getInt("Id_Area"));
-                trabajador.setIdCargo(res.getInt("Id_Cargo"));
-
-                lista.add(trabajador);
+                trabajador.setIdTrabajador(rs.getInt("idTrabajador"));
+                trabajador.setDni(rs.getString("dni"));
+                trabajador.setNombre(rs.getString("nombre"));
+                trabajador.setApellidoPaterno(rs.getString("apellidoPaterno"));
+                trabajador.setApellidoMaterno(rs.getString("apellidoMaterno"));
+                trabajador.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate()); // Convertir a LocalDate
+                trabajador.setTelefono(rs.getString("telefono"));
+                trabajador.setEmail(rs.getString("email"));
+                trabajador.setIdArea(rs.getInt("idArea"));
+                trabajador.setIdCargo(rs.getInt("idCargo"));
+                trabajadores.add(trabajador);
             }
         } catch (SQLException e) {
-            System.err.println("Error al listar trabajadores: " + e.getMessage());
+            e.printStackTrace();
         }
-
-        return lista;
+        return trabajadores;
     }
 
     @Override
-    public boolean Update(TrabajadorBE input) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public boolean Update(TrabajadorBE trabajador) {
+        String query = "UPDATE Trabajador SET dni = ?, nombre = ?, apellidoPaterno = ?, apellidoMaterno = ?, fechaNacimiento = ?, telefono = ?, email = ?, idArea = ?, idCargo = ? "
+                + "WHERE idTrabajador = ?";
+        try (Connection conn = getConexion(); PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, trabajador.getDni());
+            pst.setString(2, trabajador.getNombre());
+            pst.setString(3, trabajador.getApellidoPaterno());
+            pst.setString(4, trabajador.getApellidoMaterno());
+            pst.setDate(5, Date.valueOf(trabajador.getFechaNacimiento()));
+            pst.setString(6, trabajador.getTelefono());
+            pst.setString(7, trabajador.getEmail());
+            pst.setInt(8, trabajador.getIdArea());
+            pst.setInt(9, trabajador.getIdCargo());
+            pst.setInt(10, trabajador.getIdTrabajador());
 
-    @Override
-    public boolean Delete(String dni) {
-        if (dni == null || dni.trim().isEmpty()) {
-            System.err.println("DNI no puede ser nulo o vacío");
-            return false;
-        }
-
-        String sql = "DELETE FROM Trabajador WHERE Dni = ?";
-
-        try (PreparedStatement pst = getConexion().prepareStatement(sql)) {
-            pst.setString(1, dni);
-            int filasAfectadas = pst.executeUpdate();
-            return filasAfectadas > 0;
+            return pst.executeUpdate() > 0;  
         } catch (SQLException e) {
-            System.err.println("Error al eliminar trabajador con DNI " + dni + ": " + e.getMessage());
-            return false;
+            e.printStackTrace();
         }
+        return false;
     }
 
+    @Override
+    public boolean Delete(int idTrabajador) {
+        String query = "DELETE FROM Trabajador WHERE idTrabajador = ?";
+        try (Connection conn = getConexion(); PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setInt(1, idTrabajador);
+            return pst.executeUpdate() > 0; 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

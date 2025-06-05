@@ -1,12 +1,12 @@
 package BusinessEntity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class CertificadoBE {
 
     private int idCertificado;
-    private int idTrabajador;
-    private Date fechaEmision;
+    private int idTrabajador;  // Asegúrate de que este campo esté presente
+    private LocalDate fechaEmision;
     private String motivo;
     private String codigo;
 
@@ -29,11 +29,11 @@ public class CertificadoBE {
         this.idTrabajador = idTrabajador;
     }
 
-    public Date getFechaEmision() {
+    public LocalDate getFechaEmision() {
         return fechaEmision;
     }
 
-    public void setFechaEmision(Date fechaEmision) {
+    public void setFechaEmision(LocalDate fechaEmision) {
         this.fechaEmision = fechaEmision;
     }
 
@@ -52,5 +52,4 @@ public class CertificadoBE {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-
 }
